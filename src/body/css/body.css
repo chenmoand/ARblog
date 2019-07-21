@@ -1,0 +1,79 @@
+.app-body-left{
+    background: white;
+    border-radius: 6px; 
+    height: 230px; 
+    box-shadow: 0px 0px 6px #5E5E5E;
+    padding: 15px;
+    margin-top: 25px;
+    animation: fade-in;
+    animation-duration: 1s;
+    -webkit-animation: fade-in 1s;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 
+    40% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    } 
+}
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 
+    40% {
+        opacity: 0;
+    } 
+    100% {
+        opacity: 1;
+    } 
+}
+.Article-hr {
+    height: 1px;
+    border: none;
+    border-bottom: 2px groove azure;
+}
+.Article-md{
+    height: 100px;
+}
+
+.page-button{
+    margin-top: 15px; 
+    animation: fade-in;
+    animation-duration: 3s;
+    -webkit-animation: fade-in 3s;
+
+}
+.app-body-right {
+    border-radius: 10px; 
+    padding: 10px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 0px 6px #5E5E5E;
+}
+.myself-data {
+    text-align: center;
+    color: rgb(22, 14, 14);
+}
+.myself-name span {
+    font-weight: bolder;
+    font-size: 25px;
+    font-family: "微软雅黑", sans-serif;
+}
+.myself-data-left {
+    border: 1px solid gray; 
+    border-width: 1px 1px 1px 0; 
+}
+.myself-data-right {
+    border: 1px solid gray; 
+    border-width: 1px 0 1px 1px; 
+}
+.lable {
+    margin-top: 20px;
+    padding: 15px;
+    font-family: "微软雅黑", sans-serif;
+    
+}

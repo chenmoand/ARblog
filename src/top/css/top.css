@@ -1,0 +1,22 @@
+.app-top-font {
+    color: #000;
+    font-family: 'Courier New', Courier, monospace;
+}
+.app-top {
+    height: 49px;
+    background: white;
+    border-bottom: 1px solid white; 
+    box-shadow: 0px 20px 15px -19px #5E5E5E;
+}
+.top-img{
+    padding: 8px;
+    width: 150px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.top-img span {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 10px;
+    font-weight: bold;
+    user-select:none;
+}
