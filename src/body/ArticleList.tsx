@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown';
 import { Button } from 'antd';
 import axios from 'axios';
 import { ArticleType, BaseProps } from '../util/Stars';
-import { IContext } from '../App';
 
 
 
@@ -58,11 +57,10 @@ interface ArticleListProps {
     style?: object
 }
 
-const { useState, useEffect, useContext } = React
+const { useState, useEffect } = React
 
 const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
     const [ article , setArticle] = useState(initial);
-    const { value } = useContext(IContext);
     const { page } = props;
     useEffect(() => {
         axios.get(
@@ -77,8 +75,7 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
         .catch(err => {
             console.log(err);
         }) 
-    },[page, value])
-    // console.log(article);
+    },[page])
     return(
         <div>
             {

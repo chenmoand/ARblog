@@ -21,7 +21,7 @@ const PageButton: React.FC<Pprors> = (props: Pprors) => {
                 <Col xs={0}
                     sm={24}
                 >
-                    <Pagination defaultCurrent={1} total={maxpage*10} />
+                    <Pagination defaultCurrent={1} total={maxpage*8} />
                 </Col>
                 <Col xs={{span: 9, offset: 3}}
                     sm={0}
