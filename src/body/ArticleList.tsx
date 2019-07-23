@@ -2,23 +2,25 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Button } from 'antd';
 import axios from 'axios';
-import { ArticleType, BaseProps } from '../util/Stars';
+import { BaseArticle, BaseProps } from '../util/Stars';
+import { Link } from 'react-router-dom';
+import NProgress from "nprogress";
 
 
-
-const initial: ArticleType[] = [{
-    id : 0,
+const initial: BaseArticle[] = [{
+    // id : 0,
     articleName: "null",
     describe: "null",
-    author: "null",
-    lable: "null",
-    classification: "null",
-    content: "null",
-    date: "null"
+    // author: "null",
+    // lable: "null",
+    // classification: "null",
+    // content: "null",
+    // date: "null",
+    url: "null"
 }]
 
 interface IProps extends BaseProps{
-    src : Article;
+    src : Article,
 }
 
 interface Article {
@@ -28,13 +30,13 @@ interface Article {
 }
 
 const Article:React.FC<IProps> = (props : IProps) => {
-    const {title, describe, url} = props.src;
-    
+    const {title, describe, url } = props.src;
+
     return(
         <div className="app-body-left" style={props.style}>
-            <a href={url}>
+            <Link to={url}>
                 <h3>{title}</h3>
-            </a>
+            </Link>
             <hr className="Article-hr" />
             <ReactMarkdown
                 className="Article-md" 
@@ -44,8 +46,13 @@ const Article:React.FC<IProps> = (props : IProps) => {
             <Button
                 type="dashed"
                 style={{float: "right"}}
+                onClick={()=>{
+                    NProgress.start()
+                }}
             >
-                浏览更多
+                <Link to={url}>
+                    浏览更多
+                </Link>
             </Button>
         </div>
     )
@@ -62,18 +69,18 @@ const { useState, useEffect } = React
 const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
     const [ article , setArticle] = useState(initial);
     const { page } = props;
+    console.log(article);
+    
     useEffect(() => {
         axios.get(
             // 要8个文章,,老衲不贪
-            `http://127.0.0.1:8848/api/article?current=${page<=1?0:page*7}&size=8`
+            `http://127.0.0.1:8848/api/articles?current=${page<=1?0:page*7}&size=8`
         )
         .then(res => {
-            setArticle(res.data as ArticleType[])
-            
-            
+            setArticle(res.data as BaseArticle[])     
         })
-        .catch(err => {
-            console.log(err);
+        .catch(() => {
+            console.log("获取文章失败");
         }) 
     },[page])
     return(
@@ -83,7 +90,7 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
             return(
                 <React.Fragment key={key}>
                     <Article 
-                        src={{title: item.articleName, describe: item.describe, url: " "}}
+                        src={{title: item.articleName, describe: item.describe, url: item.url }}
                     />
                 </React.Fragment>
             )})

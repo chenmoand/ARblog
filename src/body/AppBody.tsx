@@ -7,20 +7,32 @@ import Myself from './Myself';
 import Lable from './Label';
 import LatestArticle from './LatestArticle';
 import { Switch, Route } from 'react-router-dom';
+import Article from './Article';
 
 
 const { useState } = React;
 
 const AppBody:React.FC = () => {
-    //默认页数为1
+    // 默认页数为1
     const [ page, setPage ] = useState(1);
-
     const Home = () => ( 
         <div>
             <ArticleList page={page} />
             <PageButton maxpage={10} className="page-button"  />
         </div>
     )
+    const WenZhang = (props: { match: { url: string; }; }) => {
+        return(
+            <>
+                <Article 
+                url={props.match.url} 
+                className="app-Article"
+                />
+            </>
+        )
+
+    }
+
     return(
         <Row>
             <Col 
@@ -29,6 +41,10 @@ const AppBody:React.FC = () => {
             >
                 <Switch>
                     <Route exact path = {["/","/home"]}  component={Home} />
+                    <Route exact path = {"directory"} />
+                    <Route exact path = {"time-point"} />
+                    <Route exact path = {"about"} />
+                    <Route path = {["/w/**/*.html","/w/*.html"]} component={WenZhang} />
                 </Switch>
             </Col>
             <Col 

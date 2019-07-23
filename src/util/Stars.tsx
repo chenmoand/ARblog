@@ -8,14 +8,25 @@ export interface ChildProps extends BaseProps{
     children?: React.ReactNode
 }
 
-// 文章0.0
-export interface ArticleType {
-    id: number,
+// 基础文章类型
+export interface BaseArticle {
+    
     articleName: string,
     describe: string,
+    // author: string,
+    // lable?: string,
+    // classification: string,
+    // content: string,
+    // date: Date | string,
+    url: string
+}
+// 打开文章类型 
+
+export interface MoreArticle extends BaseArticle {
+    id: number
     author: string,
     lable?: string,
     classification: string,
     content: string,
-    date: Date | string
+    date: Date | string,
 }

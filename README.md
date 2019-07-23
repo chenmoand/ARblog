@@ -1,7 +1,7 @@
 ## React + Typescript 的Blog
 
 > 食用方法 
->
+> git clone https://github.com/chenmoand/ReactBlog.git && cd blog
 > yarn && yran start
 
 1. 这个玩意还没弄完 不过有个雏形
