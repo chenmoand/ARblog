@@ -35,7 +35,7 @@ const Article:React.FC<IProps> = (props : IProps) => {
     return(
         <div className="app-body-left" style={props.style}>
             <Link to={url}>
-                <h3>{title}</h3>
+                <h5 style={{margin: 8}}>{title}</h5>
             </Link>
             <hr className="Article-hr" />
             <ReactMarkdown
@@ -74,7 +74,7 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
     useEffect(() => {
         axios.get(
             // 要8个文章,,老衲不贪
-            `http://127.0.0.1:8848/api/articles?current=${page<=1?0:page*7}&size=8`
+            `http://127.0.0.1:8848/api/article/page?current=${page<=1?0:page*7}&size=8`
         )
         .then(res => {
             setArticle(res.data as BaseArticle[])     

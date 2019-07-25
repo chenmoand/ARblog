@@ -5,7 +5,6 @@ import NProgress from "nprogress";
 import ReactMarkdown from 'react-markdown';
 import "./css/github.css"
 
-
 interface AProps extends BaseProps {
     url: string
 }
