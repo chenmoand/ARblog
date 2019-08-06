@@ -21,7 +21,6 @@ export interface BaseArticle {
     url: string
 }
 // 打开文章类型 
-
 export interface MoreArticle extends BaseArticle {
     id: number
     author: string,

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { BaseArticle, BaseProps } from '../util/Stars';
 import { Link } from 'react-router-dom';
 import NProgress from "nprogress";
-
+// import { Get } from 'react-axios';
 
 const initial: BaseArticle[] = [{
     // id : 0,
