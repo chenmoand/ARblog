@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Icon } from 'antd';
 import { BaseProps } from '../util/Stars';
 
+// const { useState, useEffect} = React
 const Lable: React.FC<BaseProps> = (props: BaseProps) => {
     return(
         <div 

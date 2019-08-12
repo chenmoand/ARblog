@@ -82,3 +82,43 @@
     padding: 50px;
     font-family: "微软雅黑", sans-serif;
 }
+.article-text-top {
+    overflow: hidden;
+}
+.article-text-top span {
+    margin-left: 8px;
+}
+.article-text-bottom {
+    margin-top: 20px; 
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 6px red;
+}
+.article-statement {
+    margin-top: 20px ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 5px; 
+    background: whitesmoke;
+    font-size: 15px;
+    color: lightslategray;
+}
+.article-statement a {
+    margin-left: 8px;
+    color: #000;
+}
+pre {
+    padding: 15px;
+    box-shadow: 0px 0px 6px red;
+    background: rgb(94, 155, 155);
+}
+pre code {
+    border: none;
+    background: none;
+    font-size: 15px;
+    margin: 0;
+    color: whitesmoke;
+    /* background: black; */
+}
+.hljs-comment {
+    color: rgb(216, 216, 216) !important;
+}

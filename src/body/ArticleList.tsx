@@ -5,7 +5,7 @@ import axios from 'axios';
 import { BaseArticle, BaseProps } from '../util/Stars';
 import { Link } from 'react-router-dom';
 import NProgress from "nprogress";
-// import { Get } from 'react-axios';
+
 
 const initial: BaseArticle[] = [{
     // id : 0,
@@ -69,7 +69,6 @@ const { useState, useEffect } = React
 const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
     const [ article , setArticle] = useState(initial);
     const { page } = props;
-    console.log(article);
     
     useEffect(() => {
         axios.get(

@@ -8,9 +8,11 @@ import Lable from './Label';
 import LatestArticle from './LatestArticle';
 import { Switch, Route } from 'react-router-dom';
 import Article from './Article';
+import axios from 'axios';
+import { API, BrInterface } from '../util/Stars';
 
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 const AppBody:React.FC = () => {
     // 默认页数为1
@@ -21,6 +23,7 @@ const AppBody:React.FC = () => {
             <PageButton maxpage={10} className="page-button"  />
         </div>
     )
+
     const WenZhang = (props: { match: { url: string; }; }) => {
         return(
             <>
@@ -52,14 +55,42 @@ const AppBody:React.FC = () => {
                 sm={{ span: 7, offset: 1, push: 0 }}
                 style={{marginTop: 30}}
             >
-                <Myself className="app-body-right" />
-                <Lable className="app-body-right lable" />
-                <LatestArticle className="app-body-right lable" />
+                <BodyRight />
             </Col>
         </Row>
     )
 };
 
+
+
+const BodyRight: React.FC = () => {
+    const init: BrInterface[] = [
+        {etype :'./home', ttype :'正在加载ING.....'}
+    ]
+    const [latest, setLatest] = useState(init)
+    useEffect(() => {
+        axios.get(API+'api/article/latest')
+        .then(res => {
+            if(res.data.code === 200) {
+                setLatest(res.data.data as BrInterface[])
+                console.log(res.data.data);
+                
+            }
+        })
+        .catch(e =>{
+            console.log(e);
+        })
+    },[])
+    console.log(latest);
+    
+    return(
+        <>
+            <Myself className="app-body-right" />
+            <Lable className="app-body-right lable" />
+            <LatestArticle src={latest} className="app-body-right lable" />
+        </>
+    )
+}
 
 
 export default AppBody;

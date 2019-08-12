@@ -29,3 +29,11 @@ export interface MoreArticle extends BaseArticle {
     content: string,
     date: Date | string,
 }
+export const API_IP = '127.0.0.1';
+export const API_PORT = '8848';
+export const API = 'http://' + API_IP + ':' + API_PORT + '/';
+
+export interface BrInterface {
+    etype: string, // url
+    ttype: string; // name 
+}
