@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ARblog/static/css/main.5da4f5c3.chunk.css",
+    "main.js": "/ARblog/static/js/main.8d0e3a59.chunk.js",
+    "main.js.map": "/ARblog/static/js/main.8d0e3a59.chunk.js.map",
+    "runtime~main.js": "/ARblog/static/js/runtime~main.2903ecec.js",
+    "runtime~main.js.map": "/ARblog/static/js/runtime~main.2903ecec.js.map",
+    "static/css/2.113ba754.chunk.css": "/ARblog/static/css/2.113ba754.chunk.css",
+    "static/js/2.4381a29a.chunk.js": "/ARblog/static/js/2.4381a29a.chunk.js",
+    "static/js/2.4381a29a.chunk.js.map": "/ARblog/static/js/2.4381a29a.chunk.js.map",
+    "index.html": "/ARblog/index.html",
+    "precache-manifest.4849e20c6dd8bf70b9670e0100d495a1.js": "/ARblog/precache-manifest.4849e20c6dd8bf70b9670e0100d495a1.js",
+    "service-worker.js": "/ARblog/service-worker.js",
+    "static/css/2.113ba754.chunk.css.map": "/ARblog/static/css/2.113ba754.chunk.css.map",
+    "static/css/main.5da4f5c3.chunk.css.map": "/ARblog/static/css/main.5da4f5c3.chunk.css.map",
+    "static/media/github.css": "/ARblog/static/media/700i.4f21f865.woff",
+    "static/media/weichat.png": "/ARblog/static/media/weichat.d809c524.png"
+  }
+}
