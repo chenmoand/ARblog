@@ -73,7 +73,7 @@ const BodyRight: React.FC = () => {
         .then(res => {
             if(res.data.code === 200) {
                 setLatest(res.data.data as BrInterface[])
-                console.log(res.data.data);
+                // console.log(res.data.data);
                 
             }
         })

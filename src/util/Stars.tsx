@@ -33,6 +33,8 @@ export const API_IP = '127.0.0.1';
 export const API_PORT = '8848';
 export const API = 'http://' + API_IP + ':' + API_PORT + '/';
 
+export const DNJAME = 'https://www.brageast.com/'
+
 export interface BrInterface {
     etype: string, // url
     ttype: string; // name 
