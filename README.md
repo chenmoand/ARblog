@@ -8,6 +8,8 @@
 >  序言: 这是我暑假学的, 可能有不明觉厉的代码别喷啊, 觉得有帮助有点个star呗!  **暂且未完成!**
 >
 >  后端地址: [ReactBlog](https://github.com/chenmoand/ASSblog) 也是未完成状态
+>
+>  网站例子: [chick here](http://www.brageast.com) 后端还没有发数据所以有点空
 
 ### 一, 如何使用
 

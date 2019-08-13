@@ -65,7 +65,7 @@ const AppBody:React.FC = () => {
 
 const BodyRight: React.FC = () => {
     const init: BrInterface[] = [
-        {etype :'./home', ttype :'正在加载ING.....'}
+        {etype :'正在加载ING....', ttype :'./home'}
     ]
     const [latest, setLatest] = useState(init)
     useEffect(() => {

@@ -46,7 +46,7 @@ interface AProps extends BaseProps {
 const init: MoreArticle = {
     id : 0,
     articleName: "服务器好像出了点差错",
-    describe: "null",
+    describe: "服务器好像出了点差错",
     author: "null",
     lable: "null",
     classification: "null",
@@ -90,7 +90,7 @@ const Article: React.FC<AProps> = (props: AProps) => {
             {
                 article.content == null ? 
                 <Markdown 
-                    source="ERR 404 !! 未找到内容" 
+                    source="ERR 404 !! 服务器没有此文章内容" 
                     className="article-text-bottom "
                 />
                 :
