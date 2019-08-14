@@ -10,6 +10,7 @@ import { Switch, Route } from 'react-router-dom';
 import Article from './Article';
 import axios from 'axios';
 import { API, BrInterface } from '../util/Stars';
+import Comment from './Comment';
 
 
 const { useState, useEffect } = React;
@@ -31,6 +32,7 @@ const AppBody:React.FC = () => {
                 url={props.match.url} 
                 className="app-Article"
                 />
+                <Comment />
             </>
         )
 
@@ -39,7 +41,7 @@ const AppBody:React.FC = () => {
     return(
         <Row>
             <Col 
-                xs={{ span: 18, offset: 3 }} 
+                xs={{ span: 22, offset: 1 }} 
                 sm={{ span: 12, offset: 2 }}
             >
                 <Switch>
@@ -51,7 +53,7 @@ const AppBody:React.FC = () => {
                 </Switch>
             </Col>
             <Col 
-                xs={{ span: 0, offset: 3 }} 
+                xs={{ span: 0, offset: 1 }} 
                 sm={{ span: 7, offset: 1, push: 0 }}
                 style={{marginTop: 30}}
             >
@@ -73,15 +75,20 @@ const BodyRight: React.FC = () => {
         .then(res => {
             if(res.data.code === 200) {
                 setLatest(res.data.data as BrInterface[])
-                // console.log(res.data.data);
-                
+                // console.log(res.data.data);              
             }
         })
         .catch(e =>{
             console.log(e);
         })
+        // axios.get(API+'apo/article/lable')
+        // .then(res => {
+
+        // })
+        // .catch(e =>{
+        //     console.log(e);
+        // })
     },[])
-    console.log(latest);
     
     return(
         <>

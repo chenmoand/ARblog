@@ -48,6 +48,7 @@ const Article:React.FC<IProps> = (props : IProps) => {
                 style={{float: "right"}}
                 onClick={()=>{
                     NProgress.start()
+                    NProgress.done()
                 }}
             >
                 <Link to={url}>

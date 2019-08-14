@@ -122,3 +122,11 @@ pre code {
 .hljs-comment {
     color: rgb(216, 216, 216) !important;
 }
+.comment {
+    padding: 15px;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 6px gray;
+    animation: fade-in;
+    animation-duration: 3s;
+    -webkit-animation: fade-in 3s;
+}
