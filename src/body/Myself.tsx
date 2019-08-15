@@ -20,9 +20,7 @@ const Myself: React.FC<BaseProps> = (props : BaseProps) => {
 
     useEffect(()=>{
         axios.get(API+'api/article/wz')
-        .then(res => {  
-            console.log(res.data);
-            
+        .then(res => {         
             setQuantity({
                 Qlabel : res.data.ttype, 
                 QCategory : res.data.etype

@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as React from 'react';
 import NProgress from "nprogress";
 import { Link } from 'react-router-dom';
-import { BaseProps, MoreArticle } from '../util/Stars';
+import { BaseProps, MoreArticle, API } from '../util/Stars';
 
 import 'highlight.js/styles/github.css';
 import marked from 'marked';
@@ -68,13 +68,13 @@ const Article: React.FC<AProps> = (props: AProps) => {
     useEffect(()=>{
         const str = encodeURIComponent(url).toLowerCase();
         axios.get(
-            `http://127.0.0.1:8848/api/article/f?url=${str}`
+            `${API}api/article/f?url=${str}`
         )
         .then(res =>{
             setArticle(res.data as MoreArticle)
         })
         .catch(() => {
-            console.log("文章内容或取失败")
+            console.log("文章内容获取失败")
         })
     },[url])
     

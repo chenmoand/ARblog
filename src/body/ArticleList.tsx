@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Button } from 'antd';
 import axios from 'axios';
-import { BaseArticle, BaseProps } from '../util/Stars';
+import { BaseArticle, BaseProps, API } from '../util/Stars';
 import { Link } from 'react-router-dom';
 import NProgress from "nprogress";
 
@@ -74,7 +74,7 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
     useEffect(() => {
         axios.get(
             // 要8个文章,,老衲不贪
-            `http://127.0.0.1:8848/api/article/page?current=${page<=1?0:page*7}&size=8`
+            `${API}api/article/page?current=${page<=1?0:page*7}&size=8`
         )
         .then(res => {
             setArticle(res.data as BaseArticle[])     

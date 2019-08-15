@@ -70,6 +70,7 @@ const BodyRight: React.FC = () => {
         {etype :'正在加载ING....', ttype :'./home'}
     ]
     const [latest, setLatest] = useState(init)
+    const [ lables, setLables ] = useState([])
     useEffect(() => {
         axios.get(API+'api/article/latest')
         .then(res => {
@@ -81,19 +82,20 @@ const BodyRight: React.FC = () => {
         .catch(e =>{
             console.log(e);
         })
-        // axios.get(API+'apo/article/lable')
-        // .then(res => {
-
-        // })
-        // .catch(e =>{
-        //     console.log(e);
-        // })
+        axios.get(API+'api/article/lables')
+        .then(res => {
+            setLables(res.data)
+            
+        })
+        .catch(e =>{
+            console.log(e);
+        })
     },[])
     
     return(
         <>
             <Myself className="app-body-right" />
-            <Lable className="app-body-right lable" />
+            <Lable src={lables} className="app-body-right lable" />
             <LatestArticle src={latest} className="app-body-right lable" />
         </>
     )
