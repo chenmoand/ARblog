@@ -5,6 +5,7 @@ import axios from 'axios';
 import { BaseArticle, BaseProps, API } from '../util/Stars';
 import { Link } from 'react-router-dom';
 import NProgress from "nprogress";
+import PageButton from './PageButton';
 
 
 const initial: BaseArticle[] = [{
@@ -60,16 +61,18 @@ const Article:React.FC<IProps> = (props : IProps) => {
 };
 
 interface ArticleListProps {
-    page : number,
     className? : string,
     style?: object
 }
 
 const { useState, useEffect } = React
 
-const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
+const ArticleList: React.FC<ArticleListProps> = props => {
     const [ article , setArticle] = useState(initial);
-    const { page } = props;
+    const [ maxPage, setMaxPage ] = useState(1)
+    const [ page, setPage ] = useState(1);
+
+    const setpage = (num: number) => (setPage(num))
     
     useEffect(() => {
         axios.get(
@@ -77,7 +80,10 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
             `${API}api/article/page?current=${page<=1?0:page*7}&size=8`
         )
         .then(res => {
-            setArticle(res.data as BaseArticle[])     
+            // console.log(res);
+            
+            setArticle(res.data.etype as BaseArticle[])
+            setMaxPage(res.data.ttype as number)     
         })
         .catch(() => {
             console.log("获取文章失败");
@@ -95,6 +101,11 @@ const ArticleList: React.FC<ArticleListProps> = (props: ArticleListProps ) => {
                 </React.Fragment>
             )})
             }
+            <PageButton 
+                maxpage={maxPage} 
+                className="page-button" 
+                setPage={setpage}
+             />
         </div>
     )
 

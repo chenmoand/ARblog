@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Row, Col } from 'antd';
 import "./css/body.css"
 import ArticleList from './ArticleList';
-import PageButton from './PageButton';
 import Myself from './Myself';
 import Lable from './Label';
 import LatestArticle from './LatestArticle';
@@ -17,26 +16,66 @@ const { useState, useEffect } = React;
 
 const AppBody:React.FC = () => {
     // 默认页数为1
-    const [ page, setPage ] = useState(1);
     const Home = () => ( 
         <div>
-            <ArticleList page={page} />
-            <PageButton maxpage={10} className="page-button"  />
+            <ArticleList />
         </div>
     )
 
-    const WenZhang = (props: { match: { url: string; }; }) => {
+    const WenZhang = (props: { match: { url: string; }; }) => {    
+        
         return(
             <>
                 <Article 
-                url={props.match.url} 
-                className="app-Article"
+                    url={props.match.url} 
+                    className="app-Article"
                 />
                 <Comment />
             </>
         )
 
     }
+
+    const WzReturn = (props: { location: { search: string; }; history: string[]; }) => {
+        const { search } = props.location
+        let value: string = ''; 
+        const wSession = window.sessionStorage.getItem('wSession')
+        const fc = () => {
+            if(search != null && search.startsWith('?code=')) {
+                search.split('?').forEach((val: string) => {
+                    if(val === 'code=') {
+                        return value = val;
+                    } 
+                })
+                 
+            }
+            if(value==='' || wSession == null) {
+                // setTimeout(() => {
+                props.history.push("/")
+                // }, 1000);
+            } else {
+                axios.get(API + 'api/user/github?'+ value)
+                .then(res => {
+                    
+                })
+                .catch(e => {
+                    console.log(e);
+                })
+            }
+            return(
+                <>
+                    正在跳转页面
+                </>
+            )
+        }
+        console.log(search);
+        return(
+            <div>
+                {fc()}
+            </div>
+        )
+    }
+
 
     return(
         <Row>
@@ -50,6 +89,7 @@ const AppBody:React.FC = () => {
                     <Route exact path = {"time-point"} />
                     <Route exact path = {"about"} />
                     <Route path = {["/w/**/*.html","/w/*.html"]} component={WenZhang} />
+                    <Route exact path = {"/w/return"} component={WzReturn}/>
                 </Switch>
             </Col>
             <Col 
