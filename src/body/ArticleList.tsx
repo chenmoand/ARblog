@@ -93,13 +93,13 @@ const ArticleList: React.FC<ArticleListProps> = props => {
         <div>
             {
             article.map((item,key) => {
-            return(
-                <React.Fragment key={key}>
-                    <Article 
-                        src={{title: item.articleName, describe: item.describe, url: item.url }}
-                    />
-                </React.Fragment>
-            )})
+                return(
+                    <React.Fragment key={key}>
+                        <Article 
+                            src={{title: item.articleName, describe: item.describe, url: item.url }}
+                        />
+                    </React.Fragment>
+                )})
             }
             <PageButton 
                 maxpage={maxPage} 

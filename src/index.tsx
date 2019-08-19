@@ -13,6 +13,8 @@ const app = (
     </ConfigProvider>
 )
 
+console.log('项目托管于:https://github.com/chenmoand/ARblog' );
+
 NProgress.start();
 
 ReactDOM.render(

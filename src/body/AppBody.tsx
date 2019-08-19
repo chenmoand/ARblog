@@ -10,6 +10,7 @@ import Article from './Article';
 import axios from 'axios';
 import { API, BrInterface } from '../util/Stars';
 import Comment from './Comment';
+import BasicProps from '../util/BasisProps';
 
 
 const { useState, useEffect } = React;
@@ -22,7 +23,7 @@ const AppBody:React.FC = () => {
         </div>
     )
 
-    const WenZhang = (props: { match: { url: string; }; }) => {    
+    const WenZhang = (props: BasicProps) => {    
         
         return(
             <>
@@ -36,7 +37,7 @@ const AppBody:React.FC = () => {
 
     }
 
-    const WzReturn = (props: { location: { search: string; }; history: string[]; }) => {
+    const WzReturn = (props: BasicProps) => {
         const { search } = props.location
         let value: string = ''; 
         const wSession = window.sessionStorage.getItem('wSession')

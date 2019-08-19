@@ -29,8 +29,8 @@ export interface MoreArticle extends BaseArticle {
     content: string,
     date: Date | string,
 }
-export const API_IP = '127.0.0.1'; // 测试用API
-// export const API_IP = 'brageast.com'; // 实际用API
+// export const API_IP = '127.0.0.1'; // 测试用API
+export const API_IP = 'brageast.com'; // 实际用API
 
 export const API_PORT = '8848';
 export const API = 'https://' + API_IP + ':' + API_PORT + '/';

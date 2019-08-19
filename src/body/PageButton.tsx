@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Row, Col, Pagination } from 'antd';
+import { Pagination } from 'antd';
 import { BaseProps } from '../util/Stars';
 
 interface Pprors extends BaseProps{
