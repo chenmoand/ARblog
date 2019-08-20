@@ -4,8 +4,10 @@ import { BaseProps } from '../util/Stars';
 import moment from 'moment';
 import { Markdown } from './Article';
 
+
 const { TextArea } = Input;
 const { useState } = React;
+
 
 const Comment:React.FC = () => {
     
@@ -92,16 +94,34 @@ interface EProps {
 const Editor:React.FC<EProps> = props => {
     const { onChange, value, submitting, onSubmit } = props;
     return(
-        <div>
+        <>
             <Form.Item>
                 <TextArea rows={4} onChange={onChange} value={value} />
-                </Form.Item>
-                <Form.Item>
-                <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
+            </Form.Item>
+            <Form.Item>
+                <Button
+                    style={{marginLeft: 15 ,float: "right",}}
+                    // 不注释掉会报错!!!!!!?????
+                    // href="https://github.com/login/oauth/authorize?client_id=98e07a1e606d561ed02a"
+                    type="primary"
+                >
+                    <a 
+                    href="https://github.com/login/oauth/authorize?client_id=98e07a1e606d561ed02a">
+                        Github 登陆
+                    </a>
+                </Button>
+                <Button 
+                    style={{float: "right",}}
+                    htmlType="submit" 
+                    loading={submitting} 
+                    onClick={onSubmit} 
+                    type="primary"
+                    // disabled={true}
+                    >
                     添加评论
                 </Button>
             </Form.Item>
-        </div>
+        </>
     )
 }
 

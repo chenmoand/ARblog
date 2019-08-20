@@ -63,7 +63,7 @@ const Article: React.FC<AProps> = (props: AProps) => {
     const { url, className, style } = props;
     // 将url转成浏览器看的懂的编码
     
-    let text_url: string = `http://bargeast.com/#/${url}`
+    let text_url: string = `http://bargeast.com/#${url}`
 
     useEffect(()=>{
         const str = encodeURIComponent(url).toLowerCase();

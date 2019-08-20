@@ -6,6 +6,10 @@ import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale-provider/zh_CN';
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import 'moment/locale/zh-cn';
+import moment from 'moment';
+
+moment.locale('zh-cn');
 
 const app = (
     <ConfigProvider  locale={zhCN}>
