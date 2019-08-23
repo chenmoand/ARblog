@@ -3,14 +3,18 @@ import { List, Comment as AntdComment, Input, Form, Button, Avatar } from 'antd'
 import { BaseProps } from '../util/Stars';
 import moment from 'moment';
 import { Markdown } from './Article';
+// import BasicProps from '../util/BasisProps';
 
 
 const { TextArea } = Input;
 const { useState } = React;
 
 
-const Comment:React.FC = () => {
-    
+interface CommentProps {
+    url : string
+}
+
+const Comment:React.FC<CommentProps> = props => {
     const [ comments, setComments ] = useState([{}])
     const [ submitting, setSubmitting ] = useState(false)
     const [ value, setValue ] = useState('')
@@ -46,10 +50,11 @@ const Comment:React.FC = () => {
                 }
                 content={
                     <Editor
-                      onChange={e => setValue(e.target.value)}
-                      onSubmit={handleSubmit}
-                      submitting={submitting}
-                      value={value}
+                        url={props.url}
+                        onChange={e => setValue(e.target.value)}
+                        onSubmit={handleSubmit}
+                        submitting={submitting}
+                        value={value}
                     />
                 }
             />
@@ -88,11 +93,12 @@ interface EProps {
     submitting :  boolean | {
         delay?: number | undefined
     } | undefined,
-    onSubmit : (event: any) => void 
+    onSubmit : (event: any) => void,
+    url : string 
 }
 
 const Editor:React.FC<EProps> = props => {
-    const { onChange, value, submitting, onSubmit } = props;
+    const { onChange, value, submitting, onSubmit, url } = props;
     return(
         <>
             <Form.Item>
@@ -100,6 +106,9 @@ const Editor:React.FC<EProps> = props => {
             </Form.Item>
             <Form.Item>
                 <Button
+                    onClick={() => {
+                        window.sessionStorage.setItem("wSession", url);
+                    }}
                     style={{marginLeft: 15 ,float: "right",}}
                     // 不注释掉会报错!!!!!!?????
                     // href="https://github.com/login/oauth/authorize?client_id=98e07a1e606d561ed02a"

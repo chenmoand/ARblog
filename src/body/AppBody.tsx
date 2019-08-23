@@ -32,7 +32,9 @@ const AppBody:React.FC = () => {
                     url={props.match.url} 
                     className="app-Article"
                 />
-                <Comment />
+                <Comment
+                    url={props.match.url}
+                />
             </>
         )
 
