@@ -109,18 +109,18 @@
 pre {
     padding: 15px;
     box-shadow: 0px 0px 6px red;
-    background: rgb(94, 155, 155);
+    background: black;
 }
 pre code {
     border: none;
     background: none;
     font-size: 15px;
     margin: 0;
-    color: whitesmoke;
+    color: mediumspringgreen;
     /* background: black; */
 }
 .hljs-comment {
-    color: rgb(216, 216, 216) !important;
+    color: gray !important;
 }
 .comment {
     padding: 15px;

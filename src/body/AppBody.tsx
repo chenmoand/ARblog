@@ -11,6 +11,7 @@ import axios from 'axios';
 import { API, BrInterface } from '../util/Stars';
 import Comment from './Comment';
 import BasicProps from '../util/BasisProps';
+import CodeReturn from './CodeReturn';
 
 
 const { useState, useEffect } = React;
@@ -57,6 +58,7 @@ const AppBody:React.FC = () => {
             } else {
                 axios.get(API + 'api/user/github?'+ value)
                 .then(res => {
+                    console.log(res);
                     
                 })
                 .catch(e => {

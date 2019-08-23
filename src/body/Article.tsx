@@ -5,7 +5,7 @@ import NProgress from "nprogress";
 import { Link } from 'react-router-dom';
 import { BaseProps, MoreArticle, API } from '../util/Stars';
 
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/arta.css';
 import marked from 'marked';
 import hljs from 'highlight.js';
 
@@ -13,9 +13,7 @@ export const Markdown:React.FC<MProps> = (props) => {
     
     marked.setOptions({
         renderer: new marked.Renderer(),
-        highlight: function(code) {
-          return require('highlight.js').highlightAuto(code).value;
-        },
+        highlight: code => hljs.highlightAuto(code).value,
         pedantic: false,
         gfm: true,
         tables: true,
@@ -55,7 +53,7 @@ const init: MoreArticle = {
     url: "null"
 }
 
-hljs.initHighlightingOnLoad();
+// hljs.initHighlightingOnLoad();
 const { useState, useEffect } = React;
 const Article: React.FC<AProps> = (props: AProps) => {
     NProgress.done();
