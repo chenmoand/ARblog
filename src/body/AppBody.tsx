@@ -94,7 +94,7 @@ const AppBody:React.FC = () => {
                     <Route exact path = {"time-point"} />
                     <Route exact path = {"about"} />
                     <Route path = {["/w/**/*.html","/w/*.html"]} component={WenZhang} />
-                    <Route exact path = {"/w/return"} component={WzReturn}/>
+                    <Route exact path = {"/w/return"} component={CodeReturn}/>
                 </Switch>
             </Col>
             <Col 
