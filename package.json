@@ -21,7 +21,7 @@
     "customize-cra": "^0.2.14",
     "highlight.js": "^9.15.9",
     "marked": "^0.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
